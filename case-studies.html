@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Études de Cas | Benjamin Payet</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#4e6073",
+              "secondary": "#5e5e5e",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "secondary-fixed-dim": "#c8c6c6",
+              "on-tertiary-fixed": "#291802",
+              "tertiary-fixed": "#ffddb7",
+              "on-secondary-fixed-variant": "#474747",
+              "on-error": "#ffffff",
+              "inverse-primary": "#b5c8df",
+              "on-tertiary": "#ffffff",
+              "primary-fixed": "#d1e4fb",
+              "surface-variant": "#e1e3e4",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed-variant": "#5a4225",
+              "surface-container-high": "#e7e8e9",
+              "on-error-container": "#93000a",
+              "on-surface-variant": "#43474c",
+              "on-secondary-fixed": "#1b1c1c",
+              "on-surface": "#191c1d",
+              "outline-variant": "#c4c6cd",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed-dim": "#e3c19b",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed": "#e4e2e2",
+              "background": "#f8f9fa",
+              "secondary-container": "#e4e2e2",
+              "surface-dim": "#d9dadb",
+              "on-primary-fixed": "#091d2e",
+              "on-primary-fixed-variant": "#36485b",
+              "on-background": "#191c1d",
+              "on-primary": "#ffffff",
+              "primary": "#162839",
+              "on-primary-container": "#96a9be",
+              "primary-fixed-dim": "#b5c8df",
+              "tertiary-container": "#4e381c",
+              "outline": "#74777d",
+              "surface-container": "#edeeef",
+              "inverse-surface": "#2e3132",
+              "on-secondary-container": "#656464",
+              "error": "#ba1a1a",
+              "primary-container": "#2c3e50",
+              "surface-bright": "#f8f9fa",
+              "tertiary": "#362308",
+              "on-tertiary-container": "#c1a17d",
+              "surface": "#f8f9fa"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .drafting-grid {
+            background-size: 100px 100px, 10px 10px;
+            background-image: 
+                linear-gradient(to right, rgba(44, 62, 80, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(44, 62, 80, 0.05) 1px, transparent 1px),
+                linear-gradient(to right, rgba(44, 62, 80, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(44, 62, 80, 0.02) 1px, transparent 1px);
+        }
+        .draw-line {
+            position: relative;
+        }
+        .draw-line::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #2c3e50;
+            transform-origin: left;
+        }
+        .hard-shadow:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 10px 10px 0px 0px #2C3E50;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-secondary-fixed-variant selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 h-[100px] bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <a href="/index.html" class="text-xl font-bold font-headline uppercase tracking-tighter text-primary">Benjamin Payet</a>
+    <div class="hidden md:flex gap-10 font-label uppercase text-[0.7rem] tracking-widest">
+        <a href="/index.html" class="text-slate-500 hover:text-primary transition-colors">Accueil</a>
+        <a href="/case-studies.html" class="text-primary border-b-2 border-primary pb-1 font-bold">Études de Cas</a>
+        <a href="/services.html" class="text-slate-500 hover:text-primary transition-colors">Services</a>
+        <a href="/about.html" class="text-slate-500 hover:text-primary transition-colors">Qui je suis</a>
+        <a href="/contact.html" class="text-slate-500 hover:text-primary transition-colors">Contact</a>
+    </div>
+    <button onclick="window.location.href='/contact.html'" class="bg-primary text-white px-8 py-3 font-label uppercase text-[0.75rem] tracking-widest hover:bg-primary-container transition-all">
+        Prendre RDV
+    </button>
+</nav>
+<main class="pt-[100px] drafting-grid min-h-screen">
+<!-- Header Section -->
+<header class="px-12 pt-20 pb-10 max-w-7xl mx-auto">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-px h-12 bg-primary_container/50"></div>
+<span class="font-label text-[0.75rem] uppercase tracking-[0.1em] text-on-secondary-fixed-variant">Archives Stratégiques</span>
+</div>
+<h1 class="font-headline text-[3.5rem] leading-[1.1] text-primary max-w-3xl draw-line">
+                INTERVENTIONS ARCHITECTURALES &amp; RÉSULTATS RÉELS.
+            </h1>
+</header>
+<!-- Search & Filter Bar -->
+<section class="px-12 mb-20 max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end gap-8 border-b border-primary-container/20 pb-8">
+<div class="flex gap-6 overflow-x-auto pb-2 scrollbar-hide">
+<button class="font-label text-[0.75rem] uppercase tracking-wider text-primary border-b-2 border-primary pb-1 whitespace-nowrap">Tous les Projets</button>
+<button class="font-label text-[0.75rem] uppercase tracking-wider text-secondary hover:text-primary transition-colors whitespace-nowrap">Identité &amp; Marque</button>
+<button class="font-label text-[0.75rem] uppercase tracking-wider text-secondary hover:text-primary transition-colors whitespace-nowrap">Événementiel</button>
+<button class="font-label text-[0.75rem] uppercase tracking-wider text-secondary hover:text-primary transition-colors whitespace-nowrap">Com Interne</button>
+</div>
+<div class="relative w-full md:w-80 group">
+<input class="w-full bg-transparent border-t-0 border-l-0 border-r-0 border-b-2 border-primary-container/30 focus:border-primary focus:ring-0 font-label text-[0.75rem] tracking-widest px-0 pb-2 transition-all" placeholder="CHERCHER UN PROJET" type="text"/>
+<span class="material-symbols-outlined absolute right-0 bottom-2 text-secondary group-focus-within:text-primary">search</span>
+</div>
+</div>
+</section>
+<!-- Featured Case Study -->
+<section class="px-12 mb-24 max-w-7xl mx-auto">
+<article class="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-primary-container bg-surface-container-lowest hard-shadow transition-all duration-300">
+<div class="lg:col-span-7 aspect-[16/9] lg:aspect-auto overflow-hidden">
+<img alt="Hôtel Lindsey Rebranding" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArTAAWL65I1YFpoonlR5TAfQJr2DTuZSNsftTw6-p0jMt0tiqg4X4hPImG2ia8J4xa_OiUdo0TQcpUDDUzKRY3yE3lXq0VSTxgfNytlrV3FVirrA8svcb5hoGdw_wmXHajUx2hKH3yG4Tbju74LDFM0nnu1fGDrzgGKzByKXul5CfrrSDRumbyEpNaiWq--RNvfwXjucRsjXysyxU--12GafLumLdGUbKbOdZAtvarrmVxT-W6eNzdRDeOxrpMDbFVfyMKTcF3Bxg"/>
+</div>
+<div class="lg:col-span-5 p-12 flex flex-col justify-center">
+<div class="flex items-center gap-4 mb-6">
+<span class="font-label text-[0.7rem] uppercase bg-primary-container text-white px-2 py-1">En Vedette</span>
+<span class="font-label text-[0.7rem] uppercase text-secondary">Identité &amp; Digital</span>
+</div>
+<h2 class="font-headline text-2xl md:text-3xl text-primary mb-6 leading-tight">
+                        Hôtel Lindsey : Redonner une identité forte pour remonter en gamme.
+                    </h2>
+<p class="text-on-secondary-fixed-variant mb-8 line-clamp-3 leading-relaxed">
+                        Refonte complète de l'identité et de la stratégie digitale pour cet établissement réunionnais. Résultat : une fréquentation en hausse de 40% et une note Google améliorée.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-label text-[0.7rem] uppercase text-primary/60">Mission 6 mois — 2024</span>
+<a class="font-label text-[0.75rem] uppercase tracking-widest text-primary border-b border-dashed border-primary pb-1 flex items-center gap-2 group" href="/case-study-lindsey.html">
+                            Voir l'Étude <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+</section>
+<!-- Case Study Grid -->
+<section class="px-12 pb-32 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+<!-- Case Study Card 1 -->
+<article class="flex flex-col group">
+<div class="aspect-square border border-primary-container/20 overflow-hidden mb-8 transition-all duration-500 hard-shadow bg-surface-container-lowest">
+<img alt="Forum ESIROI" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaMp0YP9b_QtTURSa6WI2hELJly-ksQZVsl4eiZQsFAsi7iTvfpZXganGz9DpYzfDY2rFZW-6zDS-8o4g-OXI5AkqjpF5lI_jN3PcdlDiDpZZDxLQO2p_jhO__-5-Vm3XpoooHNHD5G85MGcAeBnYwzjTGnBWSpfnv-37igj1g0s8LXZDQV3DYLDy9xyd44HWY5H-INM9y1jTA1qmtML5OsGDKrl8FT9bU6_XFS5ZtulverTGmxmfU8k4Zk1mMA6BrElB6EGUb8zY"/>
+</div>
+<span class="font-label text-[0.7rem] uppercase tracking-widest text-secondary mb-3">Forum Entreprises ESIROI</span>
+<h3 class="font-headline text-xl text-primary mb-4 leading-snug group-hover:text-primary/70 transition-colors">
+                        Créer un événement structurant en moins de 3 mois.
+                    </h3>
+<p class="text-sm text-on-secondary-fixed-variant mb-6 line-clamp-2 leading-relaxed">
+                        Organisation de A à Z du premier forum de l'école : 30 entreprises réunies et une satisfaction pro de 95%.
+                    </p>
+<a class="mt-auto font-label text-[0.7rem] uppercase tracking-tighter text-primary/40 border-b border-transparent hover:border-primary/40 pb-1 w-fit transition-all" href="/case-study-esiroi.html">Voir l'Étude</a>
+</article>
+<!-- Case Study Card 2 -->
+<article class="flex flex-col group">
+<div class="aspect-square border border-primary-container/20 overflow-hidden mb-8 transition-all duration-500 hard-shadow bg-surface-container-lowest">
+<img alt="Com Interne" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq5rQxR6FMOb-r-QW1B1aZAgoJkKbcTR6oGuNo5VxHCMg8eaxUvu25gcNGvnzatYZFvmbmxlnjIUVaPYqy4ry4eKMKdsKzXmPjkNIgDZg7pLAPcM0Xr_21eKl-x6dsHzmGu2ri2HCOHbmA_BHcLoQkTV2K-Sps4UwsKwyBU4OdVJzN9-tRxisNh2L6ON_i-uoFsMRew6LFnF9shhN8eBvc7dfM6qqNt4-IWxfkYhg0WhnACohuNBy17HkihSXcbp94YAH6UfC-DI0"/>
+</div>
+<span class="font-label text-[0.7rem] uppercase tracking-widest text-secondary mb-3">Communication Interne</span>
+<h3 class="font-headline text-xl text-primary mb-4 leading-snug group-hover:text-primary/70 transition-colors">
+                        Structurer l'information pour 200 collaborateurs.
+                    </h3>
+<p class="text-sm text-on-secondary-fixed-variant mb-6 line-clamp-2 leading-relaxed">
+                        Mise en place de flux d'information formalisés et de systèmes d'onboarding dans la grande distribution.
+                    </p>
+<a class="mt-auto font-label text-[0.7rem] uppercase tracking-tighter text-primary/40 border-b border-transparent hover:border-primary/40 pb-1 w-fit transition-all" href="/case-study-com-interne.html">Voir l'Étude</a>
+</article>
+<!-- Case Study Card 3 -->
+<article class="flex flex-col group">
+<div class="aspect-square border border-primary-container/20 overflow-hidden mb-8 transition-all duration-500 hard-shadow bg-surface-container-lowest">
+<img alt="Le Boulon" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVyXVtmpDS3kVPIok4yuICVX80DNNKy81FNL90FWB2RTLMn9lijgCV-njsc-AJ-2QJ-F1Kn3fiZ-1ywa9aW2F2or0LeAi4asUyQ-LqZkT4ggHzLaNzPTVU3X4J2Jbh6_xjsRBIIz4FatYaf2GuZUVWXVslbTm_MxdHVVCzhY6Hf9f__7xNpS42GVv9GcQH7n6C4Y0J4QQfLbkJfP_FiCrkrCakpUFy9kxzmW9ZZIAukWiX3VFw50BcKfb73-VXsBhIVg_FBJVgMns"/>
+</div>
+<span class="font-label text-[0.7rem] uppercase tracking-widest text-secondary mb-3">Le Boulon</span>
+<h3 class="font-headline text-xl text-primary mb-4 leading-snug group-hover:text-primary/70 transition-colors">
+                        Le système de com' dédié aux artisans locaux.
+                    </h3>
+<p class="text-sm text-on-secondary-fixed-variant mb-6 line-clamp-2 leading-relaxed">
+                        Développement d'un framework d'acquisition et de fidélisation spécifique aux métiers du bâtiment à La Réunion.
+                    </p>
+<a class="mt-auto font-label text-[0.7rem] uppercase tracking-tighter text-primary/40 border-b border-transparent hover:border-primary/40 pb-1 w-fit transition-all" href="#">Voir l'Étude</a>
+</article>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-20 px-12 grid grid-cols-1 md:grid-cols-3 gap-10 bg-[#F8F9FA] dark:bg-slate-950 border-t border-[#2C3E50]">
+<div class="space-y-6">
+<div class="font-['Space_Grotesk'] font-bold text-[#162839] text-xl">Benjamin Payet</div>
+<p class="font-['Manrope'] text-sm leading-relaxed text-[#474747] max-w-xs">
+                Architecte de communication indépendant spécialisé dans les systèmes de haute précision pour les structures réunionnaises.
+            </p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-4">
+<h4 class="font-label text-[0.7rem] uppercase tracking-widest text-primary">Liens</h4>
+<div class="flex flex-col gap-2">
+<a class="font-['Manrope'] text-sm text-[#474747] hover:translate-x-1 transition-transform" href="https://linkedin.com/in/benjaminpayet">LinkedIn</a>
+<a class="font-['Manrope'] text-sm text-[#474747] hover:translate-x-1 transition-transform" href="mailto:contact@benjaminpayet.fr">Contact</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label text-[0.7rem] uppercase tracking-widest text-primary">Bureau</h4>
+<p class="font-['Manrope'] text-sm text-[#474747]">Sainte-Clotilde, La Réunion</p>
+<p class="font-['Manrope'] text-sm text-[#474747]">20.8823° S, 55.4507° E</p>
+</div>
+</div>
+<div class="flex flex-col justify-between items-end">
+<div class="text-right">
+<span class="font-label text-[0.7rem] uppercase text-primary/40 block mb-2">Build Status</span>
+<span class="font-label text-[0.75rem] text-primary">V2.4.0 — Grid Active</span>
+</div>
+<div class="font-['Manrope'] text-sm leading-relaxed text-[#474747] text-right">
+                © 2026 Benjamin Payet. Construit sur la Grid.
+            </div>
+</div>
+</footer>
+</body></html>
