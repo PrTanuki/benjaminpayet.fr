@@ -1,0 +1,13 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/$(whoami)/public_html/
+    - /bin/cp -r index.html $DEPLOYPATH
+    - /bin/cp -r about.html $DEPLOYPATH
+    - /bin/cp -r services.html $DEPLOYPATH
+    - /bin/cp -r contact.html $DEPLOYPATH
+    - /bin/cp -r case-studies.html $DEPLOYPATH
+    - /bin/cp -r case-study-lindsey.html $DEPLOYPATH
+    - /bin/cp -r case-study-esiroi.html $DEPLOYPATH
+    - /bin/cp -r case-study-com-interne.html $DEPLOYPATH
+    - /bin/cp -r benjamin-payet.jpg $DEPLOYPATH
