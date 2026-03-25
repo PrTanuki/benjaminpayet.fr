@@ -3,9 +3,9 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Contact & Diagnostic | Benjamin Payet</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -92,6 +92,17 @@
             transform: translate(-5px, -5px);
             box-shadow: 10px 10px 0px 0px #2c3e50;
         }
+        /* Zcal widget responsive */
+        .zcal-inline-widget {
+            min-height: 500px;
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow: hidden;
+        }
+        .zcal-inline-widget iframe {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
     </style>
 </head>
 <body class="bg-surface font-body text-on-secondary-fixed-variant overflow-x-hidden">
@@ -127,46 +138,58 @@
 <div class="lg:col-span-7 bg-white p-10 md:p-20 border-r border-primary-container">
 <div class="max-w-xl">
 <h2 class="font-headline text-3xl font-bold text-primary mb-12 uppercase tracking-tight">Démarrer un Projet</h2>
-<form action="#" class="space-y-12">
+<form action="/contact_process.php" method="POST" class="space-y-12">
 <div class="group relative">
 <label class="font-label text-[10px] uppercase tracking-widest text-outline block mb-2 transition-all group-focus-within:translate-x-1">Nom Complet</label>
-<input class="w-full bg-transparent border-t-0 border-l-0 border-r-0 border-b-2 border-primary-container focus:ring-0 focus:border-primary px-0 py-2 font-body text-lg placeholder:text-surface-variant" placeholder="VOTRE NOM" type="text"/>
+<input name="nom" required class="w-full bg-transparent border-t-0 border-l-0 border-r-0 border-b-2 border-primary-container focus:ring-0 focus:border-primary px-0 py-2 font-body text-lg placeholder:text-surface-variant" placeholder="VOTRE NOM" type="text"/>
 </div>
 <div class="group relative">
 <label class="font-label text-[10px] uppercase tracking-widest text-outline block mb-2 transition-all group-focus-within:translate-x-1">Adresse Email</label>
-<input class="w-full bg-transparent border-t-0 border-l-0 border-r-0 border-b-2 border-primary-container focus:ring-0 focus:border-primary px-0 py-2 font-body text-lg placeholder:text-surface-variant" placeholder="VOTRE@EMAIL.COM" type="email"/>
+<input name="email" required class="w-full bg-transparent border-t-0 border-l-0 border-r-0 border-b-2 border-primary-container focus:ring-0 focus:border-primary px-0 py-2 font-body text-lg placeholder:text-surface-variant" placeholder="VOTRE@EMAIL.COM" type="email"/>
 </div>
 <div class="group relative">
 <label class="font-label text-[10px] uppercase tracking-widest text-outline block mb-2 transition-all group-focus-within:translate-x-1">Brief du Projet</label>
-<textarea class="w-full bg-transparent border-t-0 border-l-0 border-r-0 border-b-2 border-primary-container focus:ring-0 focus:border-primary px-0 py-2 font-body text-lg placeholder:text-surface-variant" placeholder="DÉCRIVEZ VOTRE DÉFI STRATÉGIQUE..." rows="4"></textarea>
+<textarea name="message" required class="w-full bg-transparent border-t-0 border-l-0 border-r-0 border-b-2 border-primary-container focus:ring-0 focus:border-primary px-0 py-2 font-body text-lg placeholder:text-surface-variant" placeholder="DÉCRIVEZ VOTRE DÉFI STRATÉGIQUE..." rows="4"></textarea>
 </div>
 <button class="w-full bg-primary text-on-primary py-6 font-headline font-bold uppercase tracking-widest text-sm hover:translate-x-2 transition-transform relative overflow-hidden group" type="submit">
 <span class="relative z-10">Initialiser la Transmission</span>
 <div class="absolute inset-0 bg-primary-container translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500"></div>
 </button>
 </form>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    if(urlParams.get('status') === 'success') {
+        alert("Transmission réussie. Je vous recontacte rapidement !");
+    } else if (urlParams.get('status') === 'error') {
+        alert("Erreur système lors de l'envoi. Veuillez réessayer ou me contacter par email.");
+    }
+</script>
 </div>
 </div>
-<!-- Right Column: Scheduler & Info -->
+<!-- Right Column: Zcal & Info -->
 <div class="lg:col-span-5 flex flex-col">
-<!-- Zcal Placeholder -->
+<!-- Zcal Widget -->
 <div class="p-10 md:p-12 border-b border-primary-container bg-surface-container-low">
 <div class="flex items-center justify-between mb-8">
 <h3 class="font-headline text-xl font-bold text-primary uppercase">Diagnostic 15-Min</h3>
 <span class="material-symbols-outlined text-primary-container">calendar_today</span>
 </div>
-<div class="glass-card border border-primary-container p-8 aspect-square flex flex-col items-center justify-center text-center hard-shadow-hover transition-all">
-<div class="w-16 h-16 border-2 border-dashed border-primary-container flex items-center justify-center mb-6">
-<span class="material-symbols-outlined text-primary">event_available</span>
+<!-- Desktop : widget inline -->
+<div class="hidden md:block">
+<script type="text/javascript" async src="https://static.zcal.co/embed/v1/embed.js"></script>
+<div class="zcal-inline-widget"><a href="https://zcal.co/i/dtHgT4Uf">Discutons ensemble de votre projet - Schedule a meeting</a></div>
 </div>
-<p class="font-label text-xs uppercase tracking-widest mb-4">Synchro Calendrier Live</p>
-<p class="text-sm text-on-secondary-fixed-variant mb-8 px-4">Réservation instantanée via le protocole sécurisé Zcal.</p>
-<button onclick="window.location.href='https://zcal.co'" class="border border-primary px-8 py-3 font-label text-[10px] uppercase tracking-widest hover:bg-primary hover:text-white transition-colors">
-                                    Ouvrir l'Agenda
-                                </button>
+<!-- Mobile : bouton lien -->
+<div class="block md:hidden">
+<a href="https://zcal.co/i/dtHgT4Uf" target="_blank" class="flex items-center justify-center gap-3 w-full bg-primary text-white py-6 font-headline font-bold uppercase tracking-widest text-sm hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined">event_available</span>
+Réserver un diagnostic 15 min
+</a>
+<p class="text-xs text-outline text-center mt-4 font-label uppercase tracking-widest">Ouverture dans Zcal</p>
 </div>
 </div>
-<!-- Location & Socials -->
+<!-- Socials -->
 <div class="flex-grow p-10 md:p-12 bg-white flex flex-col justify-between">
 <div class="space-y-12">
 <div>
@@ -175,7 +198,7 @@
 <span class="material-symbols-outlined text-primary-container mt-1">location_on</span>
 <div>
 <p class="font-headline text-lg font-bold text-primary uppercase">Île de La Réunion</p>
-<p class="text-sm font-body text-on-secondary-fixed-variant">Sainte-Clotilde, Saint-Denis</p>
+<p class="text-sm font-body text-on-secondary-fixed-variant">Le Tampon, Sud Réunion</p>
 </div>
 </div>
 </div>
@@ -185,35 +208,14 @@
 <a class="flex items-center gap-2 p-3 border border-primary-container/20 hover:border-primary transition-colors font-label text-[10px] uppercase tracking-widest" href="https://linkedin.com/in/benjaminpayet">
 <span class="material-symbols-outlined text-sm">link</span> LinkedIn
                                         </a>
-<a class="flex items-center gap-2 p-3 border border-primary-container/20 hover:border-primary transition-colors font-label text-[10px] uppercase tracking-widest" href="mailto:benjamin@ansamb.re">
+<a class="flex items-center gap-2 p-3 border border-primary-container/20 hover:border-primary transition-colors font-label text-[10px] uppercase tracking-widest" href="/cdn-cgi/l/email-protection#25464a4b514446516547404b4f44484c4b55445c40510b4357">
 <span class="material-symbols-outlined text-sm">mail</span> Email
                                         </a>
 </div>
 </div>
 </div>
-<div class="mt-20 pt-10 border-t border-dashed border-primary-container/30">
-<div class="flex justify-between items-end">
-<div class="font-label text-[10px] text-outline">
-<p>HEURE LOCALE (GMT+4)</p>
-<p class="text-primary font-bold">12:38:00</p>
-</div>
-<div class="w-12 h-12 border-2 border-primary-container flex items-center justify-center">
-<span class="material-symbols-outlined text-primary-container text-xs">north_east</span>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Map Placeholder -->
-<section class="max-w-[1400px] mx-auto px-10 pb-40">
-<div class="relative w-full h-[400px] bg-surface-container-high overflow-hidden border border-primary-container">
-<img alt="Carte de La Réunion" class="w-full h-full object-cover grayscale opacity-60 contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZD6TnTFCGTaWs_-5teszhwIhG6xxrqJ2zL9rghY6q_cxx4fu8j23O_xqK7noQZ7vn9JXQ0uFcw68DrygTRkKVgFtKeQIaoGl53WPQkez6zynQI-rUyfsFSSa_LTll_AGICFpFip4UPs0ESGbAhwbCuKl98xGRRKZrMuUiQ0kiCizfYTh20gQAfJxNzEHRHuTHjThk0Xp1KapQoRjGHSrvIsiDtI26Ak_dmNsknra6mV5FGrj9094Z5MX4z_D1LpWT_SQ51_KeEKQ"/>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
-<div class="absolute top-10 right-10 glass-card p-6 border border-primary-container">
-<p class="font-label text-[10px] uppercase tracking-widest mb-1">Zone Opérationnelle</p>
-<p class="font-headline font-bold text-primary">20.8823° S, 55.4507° E</p>
 </div>
 </div>
 </section>
@@ -229,8 +231,4 @@
 </div>
 <div class="flex space-x-8 font-Headline text-[10px] uppercase tracking-tight">
 <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-opacity opacity-80 hover:opacity-100" href="https://linkedin.com/in/benjaminpayet">LinkedIn</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-opacity opacity-80 hover:opacity-100" href="mailto:benjamin@ansamb.re">Email</a>
-</div>
-</div>
-</footer>
-</body></html>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-opacity opacity-80 hover:opacity-100" href="/cdn-cgi/l/email-protection#c1a2aeaf
